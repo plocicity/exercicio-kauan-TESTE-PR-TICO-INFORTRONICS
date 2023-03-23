@@ -1,0 +1,48 @@
+import json
+json_string = '{"first_name": "Guido", "last_name":"Rossum"}'
+
+parsed_json = json.loads(json_string)
+
+print(parsed_json['first_name'])
+
+
+import json
+dados = {
+          "nome" : "Jose",
+		  "end"  : "rua de  baixo",
+		  "idade": "40"
+        }
+json_dados = dados.dumps(dados)
+print(json_dados)
+
+
+import json
+
+dados = { 'nome': 'jose',
+          'cidade': 'SP',
+		  'partido': 'NOVO'
+		  }
+
+j_file = open('filename.json','w')
+j_file.write(json.dumps(dados))
+j_file.close()
+
+j_file = open('filename.json','r')
+raw = j_file.read()
+j_file.close()
+
+dados =  json.loads(raw)
+
+print(dados['nome'])
+print(dados)
+
+
+url = requests. get("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=46201")
+response = json.loads(url.text)
+
+arquivo = open("dados.txt", "w")
+arquivo.write(response)
+arquivo.close()
+
+json.dump(response.json(), arquivo)
+
