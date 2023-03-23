@@ -1,0 +1,79 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Tabuada {
+
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+
+         int A;
+
+        Scanner tab = new Scanner(System.in);
+        System.out.println("Informar um número");
+        A = tab.nextInt();
+
+    }
+
+}
+
+import java.io.IOException;
+import java.util.Scanner;
+
+class Main 
+{
+    public static void main(String[] args) throws IOException 
+    {
+        int entrada;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Informar um número: ");
+        entrada = scanner.nextInt();
+
+        int multiplicador = 0;
+        while(multiplicador <= 10)
+        {
+            int resultado = entrada * multiplicador;
+            System.out.println(resultado);   
+            multiplicador++;
+        }
+    }
+}
+
+
+
+
+public static void main(String args[]) {
+
+    int A;
+    do {
+        Scanner tab = new Scanner(System.in);
+        System.out.println("Informar um número (0(zero) para finalizar):");
+
+        A = tab.nextInt();
+        if (A != 0) {
+            int mult = 0;
+            while (mult < 10) {
+                mult++;
+                System.out.println(A + " * " + mult + "  = " + (A * mult));
+            }
+        }
+    } while (A != 0);
+
+} 
+
+
+ int valorUsuario;
+    int multiplicador = 0;
+    int total = 0;
+
+
+    Scanner ler = new Scanner(System.in);
+    System.out.println("Informe um número: ");
+    valorUsuario = ler.nextInt();
+
+    for (int x = 0; x < 10; x++) {
+            total = valorUsuario * ++multiplicador;
+            System.out.println(valorUsuario + " x " + multiplicador + " = " + total);
+        }
+
+    }
