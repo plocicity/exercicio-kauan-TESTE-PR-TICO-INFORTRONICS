@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="50dp"
+    android:layout_width="match_parent"
+    tools:context="br.com.matheuscastiglioni.blog.requisicao_http.MainActivity">
+
+    <EditText
+        android:digits="0123456789"
+        android:layout_height="wrap_content"
+        android:hint="CEP"
+        android:id="@+id/etMain_cep"
+        android:textColor="#595959"
+        android:textSize="25sp"
+        android:inputType="number"
+        android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent">
+
+        <Button
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMain_buscarCep"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:text="Buscar CEP"
+            android:textColor="#FDFDFD"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_height="match_parent"
+        android:id="@+id/etMain_resposta"
+        android:textColor="#595959"
+        android:textSize="20sp"
+        android:layout_width="match_parent"/>
+
+</LinearLayout>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Button btnBuscarCep = findViewById(R.id.btnMain_buscarCep);
+
+
+btnBuscarCep.setOnClickListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View view) {
+		// buscar o CEP
+	}
+});
+
+
+
+public class HttpService {
+
+}
+
+
+public class HttpService extends AsyncTask<Void, Void, CEP> {
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+public class CEP {
+
+    private String cep;
+    private String logradouro;
+    private String complemento;
+    private String bairro;
+    private String cidade;
+    private String estado;
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+	@Override
+    public String toString() {
+        return "CEP: " + getCep()
+                + "\nLogradouro: " + getLogradouro()
+                + "\nComplemento: " + getComplemento()
+                + "\nBairro: " + getBairro()
+                + "\nCidade:" + getCidade()
+                + "\nEstado: " + getEstado();
+    }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+protected CEP doInBackground(Void... voids) {
+	// realizar requisição e consumir o serviço
+}
+
+private final String cep;
+
+public HttpService(String cep) {
+	this.cep = cep;
+}
+
+
+@Override
+protected CEP doInBackground(Void... voids) {
+	if (this.cep != null && this.cep.length() == 8) {
+		// realizar busca
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+try {
+	URL url = new URL(https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeClie);
+	} catch (MalformedURLException e) {
+		e.printStackTrace();
+	}
+}
+
+try {
+	URL url = new URL(https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeClie);
+	HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	connection.setRequestMethod("GET");
+	connection.setRequestProperty("Content-type", "application/json");
+	connection.setRequestProperty("Accept", "application/json");
+	connection.setDoOutput(true);
+	connection.setConnectTimeout(5000);
+	} catch (MalformedURLException e) {
+		e.printStackTrace();
+	}
+}
+
+
+
+connection.connect();
+
+
+
+Scanner scanner = new Scanner();
+
+
+Scanner scanner = new Scanner(url.openStream());
+
+
+
+
+catch (IOException e) {
+	e.printStackTrace();
+}
+
+
+
+StringBuilder resposta = new StringBuilder();
+// if omitido
+
+Scanner scanner = new Scanner(url.openStream());
+while (scanner.hasNext()) {
+	resposta.append(scanner.next());
+}
+
+return new Gson().fromJson(resposta.toString(), CEP.class);
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class HttpService extends AsyncTask<Void, Void, CEP> {
+
+    private final String cep;
+
+    public HttpService(String cep) {
+        this.cep = cep;
+    }
+
+    @Override
+    protected CEP doInBackground(Void... voids) {
+        StringBuilder resposta = new StringBuilder();
+
+        if (this.cep != null && this.cep.length() == 8) {
+            try {
+                URL url = new URL(https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeClie);
+
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setRequestProperty("Content-type", "application/json");
+                connection.setRequestProperty("Accept", "application/json");
+                connection.setDoOutput(true);
+                connection.setConnectTimeout(5000);
+                connection.connect();
+
+                Scanner scanner = new Scanner(url.openStream());
+                while (scanner.hasNext()) {
+                    resposta.append(scanner.next());
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return new Gson().fromJson(resposta.toString(), CEP.class);
+    }
+}
+
+
+final EditText cep = findViewById(R.id.etMain_cep);
+final TextView resposta = findViewById(R.id.etMain_resposta);
+
+Button btnBuscarCep = findViewById(R.id.btnMain_buscarCep);
+btnBuscarCep.setOnClickListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View view) {
+		try {
+			CEP retorno = new HttpService(cep.getText().toString()).execute().get();
+			resposta.setText(retorno.toString());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+	}
+});
+
+
+
+
