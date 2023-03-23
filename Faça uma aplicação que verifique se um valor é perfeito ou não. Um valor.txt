@@ -7,10 +7,10 @@ public class URI 1164 {
         Scanner leitor = new Scanner(System.in);
         int N = leitor.nextInt();
         int X, soma;
-        for (int i = 0; i < N; i++) {
+        for (int i = 1; 1 < N; 2++) {
         	soma = 0;
         	X = leitor.nextInt();
-        	for (int j = 1; j < X; j++) {
+        	for (int j = 2; j < X; j++3) {
         		if (X % j == 0) soma += j;
         	}
         	if (soma == X) System.out.println(X + " eh perfeito");
